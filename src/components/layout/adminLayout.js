@@ -1,6 +1,8 @@
-import { borderRadius } from '@mui/system';
+
 import React from 'react';
 import me from '../../assets/images/me.jpg';
+import BookList from '../BookList/bookList';
+
 export const adminLayout = () => {
     return (
         <div className="wrapper ">
@@ -21,7 +23,7 @@ export const adminLayout = () => {
                 <div className="sidebar-wrapper">
                     <ul className="nav">
                         <li className="active ">
-                            <a href="./dashboard.html">
+                            <a href="#">
                                 <i className="nc-icon nc-bank"></i>
                                 <p>Dashboard</p>
                             </a>
@@ -51,16 +53,18 @@ export const adminLayout = () => {
                             <span className="navbar-toggler-bar navbar-kebab"></span>
                         </button>
                         <div className="collapse navbar-collapse justify-content-end" id="navigation">
-                            <form>
+                           <div>
+                             
                                 <div className="input-group no-border">
-                                    <input type="text" value="" className="form-control" placeholder="Search..." />
+                                    <input type="text" value="" className="form-control" onChange={()=>{}} placeholder="Search..." />
                                     <div className="input-group-append">
                                         <div className="input-group-text">
                                             <i className="nc-icon nc-zoom-split"></i>
                                         </div>
                                     </div>
                                 </div>
-                            </form>
+                                </div>
+                               
                             <ul className="navbar-nav">
                                 <li className="nav-item">
                                     <a className="nav-link btn-magnify" href="#">
@@ -85,17 +89,7 @@ export const adminLayout = () => {
                 </nav>
 
                 <div className="content">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="card card-stats">
-                                <div class="card-body ">
-                                    body
-                                </div>
-
-                            </div>
-                        </div>
-
-                    </div>
+           <BookList/>
                 </div>
                 <footer className="footer footer-black  footer-white ">
                     <div className="container-fluid">

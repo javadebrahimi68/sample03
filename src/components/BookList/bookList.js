@@ -39,6 +39,37 @@ const BookList = () => {
         })
 
     }
+    const save = (event) => {
+
+        event.preventDefault();
+        const data = new FormData(event.target);
+        var newId = parseInt(data.get('id'));
+        var exist = books.filter(c => c.id === newId);
+        if (exist.length === 0) {
+            const values = { id: newId, title: data.get('title'), author: data.get('author'), cat: data.get('category'), editMode: false };
+            var temp = books;
+            temp.push(values);
+            setBooks([...temp]);
+         
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Add New Book Complete.',
+                showConfirmButton: false,
+                timer: 1500
+            })
+        }
+        else {
+            Swal.fire({
+                position: 'top-end',
+                icon: 'error',
+                title: 'You id is Exist.Please Change your Id',
+                showConfirmButton: false,
+                timer: 1500
+            })
+        }
+
+    }
     const clearForm = () => {
 
         setSelectedBook(initialBooks);
@@ -57,7 +88,7 @@ const BookList = () => {
 
             <BookInfo books={books} editBook={editBook} removeBook={removeBook} />
 
-            <EditBook book={selectedBook} clearForm={clearForm} />
+            <EditBook book={selectedBook} clearForm={clearForm} save={save} />
 
         </div>
     )

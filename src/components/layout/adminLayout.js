@@ -1,18 +1,20 @@
+import { borderRadius } from '@mui/system';
 import React from 'react';
-
+import me from '../../assets/images/me.jpg';
 export const adminLayout = () => {
     return (
         <div className="wrapper ">
             <div className="sidebar" data-color="white" data-active-color="danger">
                 <div className="logo">
-                    <a href="https://www.creative-tim.com" className="simple-text logo-mini">
+                    <a href="#" className="simple-text logo-mini">
                         <div className="logo-image-small">
-                            <img src="../assets/img/logo-small.png" />
+                            <img src={me} alt='me' style={{borderRadius:'50%'}}/>
+
                         </div>
 
                     </a>
-                    <a href="https://www.creative-tim.com" className="simple-text logo-normal">
-                        Creative Tim
+                    <a href="#" className="simple-text logo-normal">
+                       Javad Ebrahimi
 
                     </a>
                 </div>
@@ -24,48 +26,8 @@ export const adminLayout = () => {
                                 <p>Dashboard</p>
                             </a>
                         </li>
-                        <li>
-                            <a href="./icons.html">
-                                <i className="nc-icon nc-diamond"></i>
-                                <p>Icons</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="./map.html">
-                                <i className="nc-icon nc-pin-3"></i>
-                                <p>Maps</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="./notifications.html">
-                                <i className="nc-icon nc-bell-55"></i>
-                                <p>Notifications</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="./user.html">
-                                <i className="nc-icon nc-single-02"></i>
-                                <p>User Profile</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="./tables.html">
-                                <i className="nc-icon nc-tile-56"></i>
-                                <p>Table List</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="./typography.html">
-                                <i className="nc-icon nc-caps-small"></i>
-                                <p>Typography</p>
-                            </a>
-                        </li>
-                        <li className="active-pro">
-                            <a href="./upgrade.html">
-                                <i className="nc-icon nc-spaceship"></i>
-                                <p>Upgrade to PRO</p>
-                            </a>
-                        </li>
+            
+                        
                     </ul>
                 </div>
             </div>
@@ -81,7 +43,7 @@ export const adminLayout = () => {
                                     <span className="navbar-toggler-bar bar3"></span>
                                 </button>
                             </div>
-                            <a className="navbar-brand" href="javascript:;">Paper Dashboard 2</a>
+                            <a className="navbar-brand" href="#">Paper Dashboard 2</a>
                         </div>
                         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                             <span className="navbar-toggler-bar navbar-kebab"></span>
@@ -101,28 +63,16 @@ export const adminLayout = () => {
                             </form>
                             <ul className="navbar-nav">
                                 <li className="nav-item">
-                                    <a className="nav-link btn-magnify" href="javascript:;">
+                                    <a className="nav-link btn-magnify" href="#">
                                         <i className="nc-icon nc-layout-11"></i>
                                         <p>
                                             <span className="d-lg-none d-md-block">Stats</span>
                                         </p>
                                     </a>
                                 </li>
-                                <li className="nav-item btn-rotate dropdown">
-                                    <a className="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i className="nc-icon nc-bell-55"></i>
-                                        <p>
-                                            <span className="d-lg-none d-md-block">Some Actions</span>
-                                        </p>
-                                    </a>
-                                    <div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                                        <a className="dropdown-item" href="#">Action</a>
-                                        <a className="dropdown-item" href="#">Another action</a>
-                                        <a className="dropdown-item" href="#">Something else here</a>
-                                    </div>
-                                </li>
+                               
                                 <li className="nav-item">
-                                    <a className="nav-link btn-rotate" href="javascript:;">
+                                    <a className="nav-link btn-rotate" href="#">
                                         <i className="nc-icon nc-settings-gear-65"></i>
                                         <p>
                                             <span className="d-lg-none d-md-block">Account</span>
@@ -139,9 +89,9 @@ export const adminLayout = () => {
                         <div class="col-md-12">
                             <div class="card card-stats">
                                 <div class="card-body ">
-                                 body
+                                    body
                                 </div>
-                             
+
                             </div>
                         </div>
 
@@ -150,20 +100,8 @@ export const adminLayout = () => {
                 <footer className="footer footer-black  footer-white ">
                     <div className="container-fluid">
                         <div className="row">
-                            <nav className="footer-nav">
-                                <ul>
-                                    <li><a href="https://www.creative-tim.com" target="_blank">Creative Tim</a></li>
-                                    <li><a href="https://www.creative-tim.com/blog" target="_blank">Blog</a></li>
-                                    <li><a href="https://www.creative-tim.com/license" target="_blank">Licenses</a></li>
-                                </ul>
-                            </nav>
-                            <div className="credits ml-auto">
-                                <span className="copyright">
-                                    © <script>
-                                        document.write(new Date().getFullYear())
-                                    </script>, made with <i className="fa fa-heart heart"></i> by Creative Tim
-                                </span>
-                            </div>
+
+                            Footer
                         </div>
                     </div>
                 </footer>

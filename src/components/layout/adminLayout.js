@@ -10,13 +10,13 @@ export const adminLayout = () => {
                 <div className="logo">
                     <a href="#" className="simple-text logo-mini">
                         <div className="logo-image-small">
-                            <img src={me} alt='me' style={{borderRadius:'50%'}}/>
+                            <img src={me} alt='me' style={{ borderRadius: '50%' }} />
 
                         </div>
 
                     </a>
                     <a href="#" className="simple-text logo-normal">
-                       Javad Ebrahimi
+                        Javad Ebrahimi
 
                     </a>
                 </div>
@@ -28,8 +28,8 @@ export const adminLayout = () => {
                                 <p>Dashboard</p>
                             </a>
                         </li>
-            
-                        
+
+
                     </ul>
                 </div>
             </div>
@@ -53,18 +53,18 @@ export const adminLayout = () => {
                             <span className="navbar-toggler-bar navbar-kebab"></span>
                         </button>
                         <div className="collapse navbar-collapse justify-content-end" id="navigation">
-                           <div>
-                             
+                            <div>
+
                                 <div className="input-group no-border">
-                                    <input type="text" value="" className="form-control" onChange={()=>{}} placeholder="Search..." />
+                                    <input type="text" value="" className="form-control" onChange={() => { }} placeholder="Search..." />
                                     <div className="input-group-append">
                                         <div className="input-group-text">
                                             <i className="nc-icon nc-zoom-split"></i>
                                         </div>
                                     </div>
                                 </div>
-                                </div>
-                               
+                            </div>
+
                             <ul className="navbar-nav">
                                 <li className="nav-item">
                                     <a className="nav-link btn-magnify" href="#">
@@ -74,7 +74,7 @@ export const adminLayout = () => {
                                         </p>
                                     </a>
                                 </li>
-                               
+
                                 <li className="nav-item">
                                     <a className="nav-link btn-rotate" href="#">
                                         <i className="nc-icon nc-settings-gear-65"></i>
@@ -89,7 +89,7 @@ export const adminLayout = () => {
                 </nav>
 
                 <div className="content">
-           <BookList/>
+                    <BookList />
                 </div>
                 <footer className="footer footer-black  footer-white ">
                     <div className="container-fluid">

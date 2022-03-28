@@ -1,7 +1,7 @@
 
 import React from 'react';
 import me from '../../assets/images/me.jpg';
-import BookList from '../BookList/bookList';
+import BookList from '../sampleFormDataBookList/bookList';
 
 export const adminLayout = () => {
     return (
@@ -25,7 +25,7 @@ export const adminLayout = () => {
                         <li className="active ">
                             <a href="#">
                                 <i className="nc-icon nc-bank"></i>
-                                <p>Dashboard</p>
+                                <p>Form Data Sample</p>
                             </a>
                         </li>
 

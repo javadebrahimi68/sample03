@@ -63,7 +63,8 @@ const BookList = () => {
             Swal.fire({
                 position: 'top-end',
                 icon: 'error',
-                title: 'You id is Exist.Please Change your Id',
+                title: 'You id is Exist.',
+                text:" Please Change your Id ",
                 showConfirmButton: false,
                 timer: 1500
             })

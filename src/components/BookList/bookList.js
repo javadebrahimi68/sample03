@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Swal from 'sweetalert2';
 import { initialBooks, myBooks } from '../../services/initialData';
 import BookInfo from './bookInfo';
 import EditBook from './editBook';
@@ -16,21 +17,48 @@ const BookList = () => {
         setSelectedBook(books[bookIndex]);
         //  console.log('booklist/editbook fun', selectedBook);
     };
+    const removeBook = (id) => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                var temp = books.filter(c => c.id !== id)
+                setBooks(temp);
+                Swal.fire(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success'
+                )
+            }
+        })
+
+    }
     const clearForm = () => {
 
         setSelectedBook(initialBooks);
+        Swal.fire({
+            position: 'top-end',
+            icon: 'info',
+            title: 'Cancel Editing Form',
+            showConfirmButton: false,
+            timer: 1500
+        })
     }
-    const save=()=>{
-        
-    }
+
     return (
 
         <div className="row">
-          
-                <BookInfo books={books} editBook={editBook} />
 
-                <EditBook book={selectedBook} clearForm={clearForm} save={save} />
-           
+            <BookInfo books={books} editBook={editBook} removeBook={removeBook} />
+
+            <EditBook book={selectedBook} clearForm={clearForm} />
+
         </div>
     )
 }

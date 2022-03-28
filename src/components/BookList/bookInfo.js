@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const bookInfo = ({books,editBook}) => {
+export const bookInfo = ({books,editBook,removeBook}) => {
  
   return (
     <div className="col-md-6">
@@ -28,7 +28,7 @@ export const bookInfo = ({books,editBook}) => {
                                     <td>{item.cat}</td>
                                     <td>
                                         <button className='btn btn-success mr-1' onClick={()=>editBook(item.id)}>Edit</button>
-                                        <button className='btn btn-danger mr-1'>Remove</button>
+                                        <button className='btn btn-danger mr-1'onClick={()=>removeBook(item.id)}>Remove</button>
                                     </td>
                                 </tr>)
                         })

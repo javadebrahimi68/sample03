@@ -1,5 +1,9 @@
+@import "../src/assets/bootstrap.min.css";
+@import "../src/assets/paper-dashboard.css";
+
+@import "../src/assets/demo.css";
 .App {
-  text-align: center;
+  
 }
 
 .App-logo {

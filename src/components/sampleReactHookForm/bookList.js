@@ -3,7 +3,7 @@ import Swal from 'sweetalert2';
 import { initialBooks, myBooks } from '../../services/initialData';
 import BookInfo from './bookInfo';
 import EditBook from './editBook';
-const BookListFormData = () => {
+const BookListHookForm = () => {
     const [selectedBook, setSelectedBook] = useState(initialBooks);
 
     const [books, setBooks] = useState(myBooks);
@@ -95,4 +95,4 @@ const BookListFormData = () => {
     )
 }
 
-export default BookListFormData;
+export default BookListHookForm;

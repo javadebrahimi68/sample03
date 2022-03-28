@@ -1,13 +1,15 @@
 
 import './App.css';
-
+import { BrowserRouter, Router } from 'react-router-dom';
 import AdminLayout from './components/layout/adminLayout';
 
 
 function App() {
   return (
     <div className="App">
-   <AdminLayout/>
+      <BrowserRouter>
+        <AdminLayout />
+      </BrowserRouter>
     </div>
   );
 }

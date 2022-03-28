@@ -1,7 +1,9 @@
 
 import React from 'react';
+import { Link, NavLink, Route, Routes } from 'react-router-dom';
 import me from '../../assets/images/me.jpg';
-import BookList from '../sampleFormDataBookList/bookList';
+import BookListFormData from '../sampleFormDataBookList/bookList';
+import Dashboard from '../dashboard';
 
 export const adminLayout = () => {
     return (
@@ -22,11 +24,18 @@ export const adminLayout = () => {
                 </div>
                 <div className="sidebar-wrapper">
                     <ul className="nav">
-                        <li className="active ">
-                            <a href="#">
+                        <li className='active'>
+
+                            <NavLink to='/' className={({ isActive }) => isActive ? "active" : ""} >
+                                <i className="nc-icon nc-bank"></i>
+                                <p>Dashboard</p>
+                            </NavLink>
+                        </li>
+                        <li >
+                            <NavLink to='/useFormDataSample' className={({ isActive }) => isActive ? "active" : ""}>
                                 <i className="nc-icon nc-bank"></i>
                                 <p>Form Data Sample</p>
-                            </a>
+                            </NavLink>
                         </li>
 
 
@@ -89,13 +98,20 @@ export const adminLayout = () => {
                 </nav>
 
                 <div className="content">
-                    <BookList />
+                    <Routes>
+                        <Route path="/" exact element={<Dashboard />} />
+                        <Route path="/useFormDataSample" element={<BookListFormData />} />
+
+                    </Routes>
+
                 </div>
                 <footer className="footer footer-black  footer-white ">
                     <div className="container-fluid">
-                        <div className="row">
-
-                            Footer
+                        <div className="row justify-content-center ">
+                            <p >
+                                developer: Javad Ebrahimi
+                            </p>
+                            
                         </div>
                     </div>
                 </footer>

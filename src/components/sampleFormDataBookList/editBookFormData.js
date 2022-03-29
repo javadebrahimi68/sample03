@@ -7,7 +7,7 @@ import { initialBooks } from '../../services/initialData'
 
 
 
-const EditBook = ({ book, clearForm, save }) => {
+const EditBookFormData = ({ book, clearForm, save }) => {
     const [item, setItem] = useState(book);
 
     useEffect(() => {
@@ -49,4 +49,4 @@ const EditBook = ({ book, clearForm, save }) => {
         </div>
     )
 }
-export default EditBook;
+export default EditBookFormData;

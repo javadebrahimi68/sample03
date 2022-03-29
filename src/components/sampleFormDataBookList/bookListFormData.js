@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Swal from 'sweetalert2';
 import { initialBooks, myBooks } from '../../services/initialData';
-import BookInfo from './bookInfo';
+import BookInfo from './bookInfoFormData';
 import EditBookFormData from './editBookFormData';
 const BookListFormData = () => {
     const [selectedBook, setSelectedBook] = useState(initialBooks);

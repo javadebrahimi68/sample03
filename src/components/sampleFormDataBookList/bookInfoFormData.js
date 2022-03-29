@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const bookInfo = ({ books, editBook, removeBook }) => {
+export const bookInfoFormData = ({ books, editBook, removeBook }) => {
 
     return (
         <div className="col-md-6">
@@ -42,4 +42,4 @@ export const bookInfo = ({ books, editBook, removeBook }) => {
         </div>
     )
 }
-export default bookInfo;
+export default bookInfoFormData;

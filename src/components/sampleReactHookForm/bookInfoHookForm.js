@@ -2,7 +2,7 @@ import React from 'react'
 
 
 export const bookInfoHookForm = ({ books, editBook, removeBook }) => {
-   
+
     return (
         <div className="col-md-6">
             <div className="card card-stats">
@@ -28,6 +28,7 @@ export const bookInfoHookForm = ({ books, editBook, removeBook }) => {
                                             <td>{item.author}</td>
                                             <td>{item.cat}</td>
                                             <td>
+
                                                 <button className='btn btn-success mr-1' onClick={() => editBook(item.id)}>      <i className="nc-icon nc-caps-small mr-1"></i>Edit</button>
                                                 <button className='btn btn-danger mr-1 ' onClick={() => removeBook(item.id)}> <i className=" nc-icon nc-simple-remove mr-1"></i>Remove</button>
 

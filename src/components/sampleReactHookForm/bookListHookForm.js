@@ -16,7 +16,13 @@ const BookListHookForm = () => {
         setSelectedBook(books[bookIndex]);
         setBooks([...books]);
     };
-
+    const clearForm = () => {
+        books.forEach(element => {
+            element.editMode = false;
+        });
+        setBooks([...books]);
+        setSelectedBook(...initialBooks);
+    }
     const removeBook = (id) => {
         Swal.fire({
             title: 'Are you sure?',
@@ -41,33 +47,41 @@ const BookListHookForm = () => {
     }
     const save = (data) => {
 
-        var exist = books.filter(c => c.id === data.id);
-        if (exist.length > 0) {
-            console.log(exist);
-            if (exist.editMode === true) {
-                setBooks([...books.filter(c => c.id !== data.id), data]);
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'info',
-                    title: 'Edit Book Complete.',
-                    showConfirmButton: false,
-                    timer: 1000
-                })
-            }
-            else {
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'error',
-                    title: 'You id is Exist.',
-                    text: " Please Change your Id ",
-                    showConfirmButton: false,
-                    timer: 1500
-                })
-            }
-        }
-        else {
-            setBooks([...books, data]);
+        const exist = books.filter(c => c.id === data.id);
+        //console.log(exist);
+        if (exist.length > 0 && exist[0].editMode) {
+            //book find For Update
+            data.editMode = false;
+            const tempIndex = books.findIndex(c => c.id === data.id);
+            books[tempIndex].title = data.title;
+            books[tempIndex].author = data.author;
+            books[tempIndex].cat = data.cat;
+            books[tempIndex].editMode = false;
+            setBooks([...books]);
+            Swal.fire({
+                position: 'top-end',
+                icon: 'info',
+                title: 'Edit Book Complete.',
+                showConfirmButton: false,
+                timer: 1000
+            })
+            setSelectedBook(...initialBooks);
+        } else if (exist.length > 0 && !exist[0].editMode) {
+            //book find But Cant Update
+            // console.log('Book Cant Updated');
+            Swal.fire({
+                position: 'top-end',
+                icon: 'error',
+                title: 'You id is Exist.',
+                text: " Please Change your Id ",
+                showConfirmButton: false,
+                timer: 1500
+            })
+        } else {
+           // console.log('book Not Find');
 
+            setBooks([...books, data]);
+           // console.log('books ', books);
             Swal.fire({
                 position: 'top-end',
                 icon: 'success',
@@ -75,22 +89,13 @@ const BookListHookForm = () => {
                 showConfirmButton: false,
                 timer: 1500
             })
+            setSelectedBook(...initialBooks);
         }
+      
 
     }
-    const clearForm = () => {
 
-        //  setSelectedBook(initialBooks);
-        // Swal.fire({
-        //     position: 'top-end',
-        //     icon: 'info',
-        //     title: 'Cancel Editing Form',
-        //     showConfirmButton: false,
-        //     timer: 1500
-        // })
-   
-    
-    }
+
     return (
 
         <div className="row">

@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 
 const EditBookHookForm = ({ book, clearForm, save }) => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm({ defaultValues: { book } });
+    
     useEffect(() => {
         reset(book);
     }, [book])
@@ -44,8 +45,8 @@ const EditBookHookForm = ({ book, clearForm, save }) => {
                     <div className='card-footer m-3'>
 
                         <button className='btn btn-success mr-1' type='submit'>Save</button>
-                        {/* <button className='btn btn-warning mr-1' type='reset' onClick={clearForm}
-                        >Cancel</button> */}
+                        <button className='btn btn-warning mr-1' type='reset' onClick={clearForm}
+                        >Cancel</button>
 
                     </div>
                 </form>

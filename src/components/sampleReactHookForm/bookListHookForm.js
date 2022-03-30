@@ -1,30 +1,20 @@
 import React, { useState } from 'react';
-import { useEffect } from 'react';
 import Swal from 'sweetalert2';
 import { initialBooks, myBooks } from '../../services/initialData';
 import BookInfo from './bookInfoHookForm';
 import EditBookHookForm from './editBookHookForm';
 const BookListHookForm = () => {
-    //const [selectedBook, setSelectedBook] = useState(initialBooks);
-
-
-
-
+    const [selectedBook, setSelectedBook] = useState(...initialBooks);
     const [books, setBooks] = useState(myBooks);
 
     const editBook = (id) => {
-       // console.log(id);
         const bookIndex = books.findIndex(c => c.id === id);
         books.forEach(element => {
             element.editMode = false;
         });
         books[bookIndex].editMode = true;
-
+        setSelectedBook(books[bookIndex]);
         setBooks([...books]);
-        //console.log(books);
-        //setSelectedBook(books[bookIndex]);
-        //console.log('selectedBook:',selectedBook);
-
     };
 
     const removeBook = (id) => {
@@ -51,8 +41,31 @@ const BookListHookForm = () => {
     }
     const save = (data) => {
 
-        var exist = books.filter(c => c.id === data.id && c.editMode === false);
-        if (exist.length === 0) {
+        var exist = books.filter(c => c.id === data.id);
+        if (exist.length > 0) {
+            console.log(exist);
+            if (exist.editMode === true) {
+                setBooks([...books.filter(c => c.id !== data.id), data]);
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'info',
+                    title: 'Edit Book Complete.',
+                    showConfirmButton: false,
+                    timer: 1000
+                })
+            }
+            else {
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'error',
+                    title: 'You id is Exist.',
+                    text: " Please Change your Id ",
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            }
+        }
+        else {
             setBooks([...books, data]);
 
             Swal.fire({
@@ -63,24 +76,11 @@ const BookListHookForm = () => {
                 timer: 1500
             })
         }
-        else if (books.filter(c => c.id === data.id && c.editMode === true).length > 0) {
-            alert('Ready for save Edited');
-        }
-        else {
-            Swal.fire({
-                position: 'top-end',
-                icon: 'error',
-                title: 'You id is Exist.',
-                text: " Please Change your Id ",
-                showConfirmButton: false,
-                timer: 1500
-            })
-        }
 
     }
     const clearForm = () => {
-       
-      //  setSelectedBook(initialBooks);
+
+        //  setSelectedBook(initialBooks);
         // Swal.fire({
         //     position: 'top-end',
         //     icon: 'info',
@@ -88,14 +88,8 @@ const BookListHookForm = () => {
         //     showConfirmButton: false,
         //     timer: 1500
         // })
-    }
-    const getEditItem = () => {
-        if (books.filter(c => c.editMode === true).length>0) {
-            return books[books.findIndex(c => c.editMode === true)];
-        }else
-        {
-            return initialBooks;
-        }
+   
+    
     }
     return (
 
@@ -103,7 +97,7 @@ const BookListHookForm = () => {
 
             <BookInfo books={books} editBook={editBook} removeBook={removeBook} />
 
-            <EditBookHookForm book={getEditItem()} clearForm={clearForm} save={save} />
+            <EditBookHookForm book={selectedBook} clearForm={clearForm} save={save} />
 
         </div>
     )

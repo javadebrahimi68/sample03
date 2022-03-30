@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Helmet from 'react-helmet';
 import Swal from 'sweetalert2';
 import { initialBooks, myBooks } from '../../services/initialData';
 import BookInfo from './bookInfoFormData';
@@ -50,7 +51,7 @@ const BookListFormData = () => {
             var temp = books;
             temp.push(values);
             setBooks([...temp]);
-         
+
             Swal.fire({
                 position: 'top-end',
                 icon: 'success',
@@ -64,7 +65,7 @@ const BookListFormData = () => {
                 position: 'top-end',
                 icon: 'error',
                 title: 'You id is Exist.',
-                text:" Please Change your Id ",
+                text: " Please Change your Id ",
                 showConfirmButton: false,
                 timer: 1500
             })
@@ -84,14 +85,19 @@ const BookListFormData = () => {
     }
 
     return (
+        <><Helmet>
 
-        <div className="row">
+            <title>Sample Form With Form Data</title>
 
-            <BookInfo books={books} editBook={editBook} removeBook={removeBook} />
+        </Helmet>
+            <div className="row">
 
-            <EditBookFormData book={selectedBook} clearForm={clearForm} save={save} />
+                <BookInfo books={books} editBook={editBook} removeBook={removeBook} />
 
-        </div>
+                <EditBookFormData book={selectedBook} clearForm={clearForm} save={save} />
+
+            </div>
+        </>
     )
 }
 

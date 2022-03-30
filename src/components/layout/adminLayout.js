@@ -1,4 +1,3 @@
-
 import React from 'react';
 import {  NavLink, Route, Routes } from 'react-router-dom';
 import me from '../../assets/images/me.jpg';
@@ -6,7 +5,7 @@ import BookListFormData from '../sampleFormDataBookList/bookListFormData';
 import Dashboard from '../dashboard';
 import BookListHookForm from '../sampleReactHookForm/bookListHookForm';
 
-export const adminLayout = () => {
+export const AdminLayout = () => {
     return (
         <div className="wrapper ">
             <div className="sidebar" data-color="white" data-active-color="danger">
@@ -133,4 +132,4 @@ export const adminLayout = () => {
 
 
 
-export default adminLayout;
+export default AdminLayout;

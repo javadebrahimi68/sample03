@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Helmet from 'react-helmet';
 import Swal from 'sweetalert2';
 import { initialBooks, myBooks } from '../../services/initialData';
 import BookInfo from './bookInfoHookForm';
@@ -78,10 +79,10 @@ const BookListHookForm = () => {
                 timer: 1500
             })
         } else {
-           // console.log('book Not Find');
+            // console.log('book Not Find');
 
             setBooks([...books, data]);
-           // console.log('books ', books);
+            // console.log('books ', books);
             Swal.fire({
                 position: 'top-end',
                 icon: 'success',
@@ -91,20 +92,26 @@ const BookListHookForm = () => {
             })
             setSelectedBook(...initialBooks);
         }
-      
+
 
     }
 
 
     return (
+        <>  
+        <Helmet>
 
-        <div className="row">
+            <title>Sample Form With React-Hook-Form</title>
 
-            <BookInfo books={books} editBook={editBook} removeBook={removeBook} />
+        </Helmet>
+            <div className="row">
 
-            <EditBookHookForm book={selectedBook} clearForm={clearForm} save={save} />
+                <BookInfo books={books} editBook={editBook} removeBook={removeBook} />
 
-        </div>
+                <EditBookHookForm book={selectedBook} clearForm={clearForm} save={save} />
+
+            </div>
+        </>
     )
 }
 

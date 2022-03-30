@@ -101,8 +101,8 @@ const BookListHookForm = () => {
         <>  
         <Helmet>
 
-            <title>Sample Form With React-Hook-Form</title>
-
+            <title>React Hook Form</title>
+            <meta name="description" content="Sample Form With React Hook Form" />
         </Helmet>
             <div className="row">
 

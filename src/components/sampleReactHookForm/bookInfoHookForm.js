@@ -4,7 +4,7 @@ import React from 'react'
 export const bookInfoHookForm = ({ books, editBook, removeBook }) => {
 
     return (
-        <div className="col-md-6">
+        <div className="col-md-7">
             <div className="card card-stats">
                 <div className="card-body ">
                     <table className='table table-bordered table-striped'>

@@ -17,7 +17,7 @@ const EditBookHookForm = ({ book, clearForm, save }) => {
     }
 
     return (
-        <div className="col-md-6">
+        <div className="col-md-5">
             <div className="card card-stats">
                 <form onSubmit={handleSubmit(prepareForeSave)}>
                     <div className="card-body ">

@@ -7,12 +7,19 @@ const BookDetails = () => {
     const params = useParams();
     return (
         <>
-            <div>sadsd</div>
+            <div className='card'>
+                <div className='card-header text-center'>Details Of Book</div>
+                <div className='card-body'>
+                    <h5>Book Title</h5>
+                    <h6>Book Category</h6>
+                    <h6>Book Author</h6>
+                </div>
+            </div>
 
-            id={params.id}
+            {/* id={params.id} */}
             {/* <div>bookDetails:  {location.search}</div> */}
             
-            <div>params:  {params}</div>
+            {/* <div>params:  {params}</div> */}
         </>
     )
 }

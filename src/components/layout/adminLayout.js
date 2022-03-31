@@ -111,7 +111,7 @@ export const AdminLayout = () => {
                         <Route path="/useHookFormSample/details" exact element={<BookDetails />} >
                             <Route path="/useHookFormSample/details/:id" element={<BookDetails />} />
                         </Route>
-
+                        <Route path='*' element={<div className='text-success text-center'><h1> Page Not Found</h1></div>}/>
                     </Routes>
 
                 </div>

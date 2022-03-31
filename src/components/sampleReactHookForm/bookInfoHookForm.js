@@ -5,8 +5,11 @@ import { Link, useNavigate } from 'react-router-dom';
 
 export const BookInfoHookForm = ({ books, editBook, removeBook }) => {
     let navigate = useNavigate();
-    const showDetailsWithNavigate = (id) => navigate("/useHookFormSample/details/${id}", {state:{id:1}});
-
+    const showDetailsWithNavigate = (id) => navigate("/useHookFormSample/details/${id}", { state: { id: 1 } });
+    const saveInLocalDb = (id) => {
+        localStorage.setItem('book',JSON.stringify(books.find(c => c.id = id)));
+        console.log(JSON.parse( localStorage.getItem('book')));
+    }
     return (
         <div className="col-md-12 col-sm-12">
             <div className="card card-stats">
@@ -35,10 +38,11 @@ export const BookInfoHookForm = ({ books, editBook, removeBook }) => {
 
                                                 <button className='btn btn-success mr-1' onClick={() => editBook(item.id)}>      <i className="nc-icon nc-caps-small mr-1"></i>Edit</button>
                                                 <button className='btn btn-danger mr-1 ' onClick={() => removeBook(item.id)}> <i className=" nc-icon nc-simple-remove mr-1"></i>Remove</button>
-                                                <div>
-                                                    <Link className='btn btn-warning' to={"/useHookFormSample/details/"+item.id}>Link</Link>
-                                                    <Link className='btn btn-info' to={"/useHookFormSample/details?id="+item.id}>Query String</Link>
-                                                    <button className='btn btn-info' onClick={()=>showDetailsWithNavigate(1)}>Navigate</button>
+                                                <button className='btn' onClick={() => saveInLocalDb(item.id)}>Save In LocalDataBase</button>
+                                                <div className='mt-2'>
+                                                    <Link className='btn btn-info mr-1' to={"/useHookFormSample/details/" + item.id}>Link</Link>
+                                                    <Link className='btn btn-info mr-1' to={"/useHookFormSample/details?id=" + item.id}>Query String</Link>
+                                                    <button className='btn btn-info mr-1' onClick={() => showDetailsWithNavigate(1)}>Navigate</button>
                                                 </div>
                                             </td>
                                         </tr>)

@@ -1,10 +1,10 @@
 import React from 'react';
-import {  NavLink, Route, Routes } from 'react-router-dom';
+import { NavLink, Route, Router, Routes } from 'react-router-dom';
 import me from '../../assets/images/me.jpg';
 import BookListFormData from '../sampleFormDataBookList/bookListFormData';
 import Dashboard from '../dashboard';
 import BookListHookForm from '../sampleReactHookForm/bookListHookForm';
-
+import BookDetails from '../bookDetails';
 export const AdminLayout = () => {
     return (
         <div className="wrapper ">
@@ -103,11 +103,15 @@ export const AdminLayout = () => {
                 </nav>
 
                 <div className="content">
+
                     <Routes>
                         <Route path="/" exact element={<Dashboard />} />
                         <Route path="/useFormDataSample" element={<BookListFormData />} />
                         <Route path="/useHookFormSample" element={<BookListHookForm />} />
-                        
+                        <Route path="/useHookFormSample/details" exact element={<BookDetails />} >
+                            <Route path="/useHookFormSample/details/:id" element={<BookDetails />} />
+                        </Route>
+
                     </Routes>
 
                 </div>
@@ -117,7 +121,7 @@ export const AdminLayout = () => {
                             <p >
                                 developer: Javad Ebrahimi
                             </p>
-                            
+
                         </div>
                     </div>
                 </footer>

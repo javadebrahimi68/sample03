@@ -4,6 +4,7 @@ import Swal from 'sweetalert2';
 import { initialBooks, myBooks } from '../../services/initialData';
 import BookInfo from './bookInfoHookForm';
 import EditBookHookForm from './editBookHookForm';
+
 const BookListHookForm = () => {
     const [selectedBook, setSelectedBook] = useState(...initialBooks);
     const [books, setBooks] = useState(myBooks);
@@ -98,18 +99,19 @@ const BookListHookForm = () => {
 
 
     return (
-        <>  
-        <Helmet>
+        <>
+            <Helmet>
 
-            <title>React Hook Form</title>
-            <meta name="description" content="Sample Form With React Hook Form" />
-        </Helmet>
-            <div className="row">
-
+                <title>React Hook Form</title>
+                <meta name="description" content="Sample Form With React Hook Form" />
+            </Helmet>
+            <div className='row'>
+                
                 <BookInfo books={books} editBook={editBook} removeBook={removeBook} />
+            </div>
 
+            <div className="row">
                 <EditBookHookForm book={selectedBook} clearForm={clearForm} save={save} />
-
             </div>
         </>
     )

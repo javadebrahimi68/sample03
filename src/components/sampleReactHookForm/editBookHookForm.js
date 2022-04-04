@@ -18,8 +18,8 @@ const EditBookHookForm = ({ book, clearForm, save }) => {
     }
 
     return (
-        <>
-            <div className="card  col-md-12">
+        <div className='col-md-12'>
+            <div className="card  card-state">
                 <div className="card-header">
                     Add or Edit Book
                 </div>
@@ -60,8 +60,9 @@ const EditBookHookForm = ({ book, clearForm, save }) => {
 
                     </div>
                     <div className='text-center col-md-6 align-self-center ' >
-                        <div className='text-center  align-self-center ' style={{ backgroundColor: 'yellow', width:140,height:200}}>
-                           </div>
+                        <h1 className='text-center  align-self-center ' 
+                        style={{ backgroundColor: 'yellow', width:140,height:200}}>
+                           </h1>
                     </div>
                 </div>
                 <div className="card-footer text-muted">
@@ -72,7 +73,7 @@ const EditBookHookForm = ({ book, clearForm, save }) => {
 
 
 
-        </>
+        </div>
     )
 }
 export default EditBookHookForm;

@@ -36,13 +36,13 @@ export const BookInfoHookForm = ({ books, editBook, removeBook }) => {
                                             <td>{item.cat}</td>
                                             <td style={{}}>
 
-                                                <button className='btn btn-success mr-1' onClick={() => editBook(item.id)}>      <i className="nc-icon nc-caps-small mr-1"></i>Edit</button>
-                                                <button className='btn btn-danger mr-1 ' onClick={() => removeBook(item.id)}> <i className=" nc-icon nc-simple-remove mr-1"></i>Remove</button>
-                                                <button className='btn' onClick={() => saveInLocalDb(item.id)}>Save In LocalDataBase</button>
+                                                <button className='btn btn-success mr-1 btn-sm' onClick={() => editBook(item.id)}>      <i className="nc-icon nc-caps-small mr-1"></i>Edit</button>
+                                                <button className='btn btn-danger mr-1 btn-sm' onClick={() => removeBook(item.id)}> <i className=" nc-icon nc-simple-remove mr-1"></i>Remove</button>
+                                                <button className='btn btn-sm' onClick={() => saveInLocalDb(item.id)}>Save In LocalDataBase</button>
                                                 <div className='mt-2'>
-                                                    <Link className='btn btn-info mr-1' to={"/useHookFormSample/details/" + item.id}>Link</Link>
-                                                    <Link className='btn btn-info mr-1' to={"/useHookFormSample/details?id=" + item.id}>Query String</Link>
-                                                    <button className='btn btn-info mr-1' onClick={() => showDetailsWithNavigate(1)}>Navigate</button>
+                                                    <Link className='btn btn-info mr-1 btn-sm' to={"/useHookFormSample/details/" + item.id}>Link</Link>
+                                                    <Link className='btn btn-info mr-1 btn-sm' to={"/useHookFormSample/details?id=" + item.id}>Query String</Link>
+                                                    <button className='btn btn-info mr-1 btn-sm' onClick={() => showDetailsWithNavigate(1)}>Navigate</button>
                                                 </div>
                                             </td>
                                         </tr>)
